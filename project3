@@ -3,13 +3,15 @@ def main():
     ford={}
     subaru={}
     choice={}
+    make=[]
     name=input('please input your name here')
     print('welcome', name, 'to the car showroom!')
     car=car()
     model=model()
     add=add()
     price=price()
-    print(choice+finalprice)
+    print(make)
+    #print(model, add, finalprice)
     #add choice to file
 def car():
     choice=input('which car brand do you want to look at? Honda, Ford, or Subaru')
