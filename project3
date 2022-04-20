@@ -1,0 +1,14 @@
+def main():
+    name=input('please input your name here')
+    print('welcome', name, 'to the car showroom!')
+    car=car()
+    model=model()
+    add=add()
+    price=price()
+    print(choice+finalprice)
+    #add choice to file
+def car():
+def model():
+def add():
+def price():
+main()
