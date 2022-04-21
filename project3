@@ -1,10 +1,10 @@
 def main():
-    honda={}
-    ford={}
-    subaru={}
+    Honda={Civic:22000, Pilot:35000, Oddyssey:42000}
+    Ford={imp:45000, focus:36000, Taurus:25000}
+    Subaru={Crosstrek:28000, Outback:26000, Forrester:36000}
+    add={camera:500, tint:1000, sunroof:1500
     choice={}
-    make=[]
-    name=input('please input your name here')
+    name=('please input your name here')
     print('welcome', name, 'to the car showroom!')
     car=car()
     model=model()
@@ -16,7 +16,7 @@ def main():
 def car():
     choice=input('which car brand do you want to look at? Honda, Ford, or Subaru')
     return choice
-def model(honda, ford, subaru):
-def add():
+def model(honda, ford, subaru, choice):
+def add(choice):
 def price():
 main()
