@@ -104,4 +104,150 @@ def price(choice):
         price+=choice[k]
     return price
 main()
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+def main():
+    name=input('Before you can see our cars, please input your name here:')
+    import os.path
+    from os import path
+    import json
+    fileName=name+'.txt'
+    if path.exists(fileName)==True:
+        f=open(fileName, "r")
+        print('Welcome', name, 'to the car showroom!')
+        print('It looks like you already have a car picked out!')
+        print(f.read())
+        f=open(fileName, "a")
+        yesOrNo=input('Would you like to select another car, Yes or No?')
+        if yesOrNo=='Yes'or'yes':
+            y=1
+            while y==1:
+                choice={}
+                make=car()
+                type=model(choice, make)
+                add=add_on(choice)
+                print(choice)
+                cont=input('Are you ok with your selection?')
+                if cont=='Yes'or'yes':
+                    y+=1
+            cost=price(choice)
+            print('Total price:', cost)
+            json.dump(choice, f)
+            json.dump(cost, f)
+            f.close()
+        else:
+            main()
+                 
+    else:
+        f=open(fileName, "w")
+        f.write(name)
+        print('Welcome', name, 'to the car showroom!')
+        y=1
+        while y==1:
+            choice={}
+            make=car()
+            type=model(choice, make)
+            add=add_on(choice)
+            print(choice)
+            cont=input('Are you ok with your selection?')
+            if cont=='Yes'or'yes':
+                y+=1
+        cost=price(choice)
+        print('Total price:', cost)
+        json.dump(choice, f)
+        json.dump(cost, f)
+        f.close()
+
+def car():
+    make=input('Which car brand do you want to look at? Honda, Ford, or Subaru:').lower()
+    return make
+def model(choice, make):
+    honda={'Civic':22000, 'Pilot':37000, 'Odyssey':43000}
+    ford={'Explorer':33000, 'Focus':16000, 'Taurus':29000}
+    subaru={'Crosstrek':28000, 'Outback':27000, 'Forrester':36000}
+    if make=='honda':
+        model=input('Which model would you like to choose? Civic: $22,000, Pilot: $37,000, Odyssey: $43,000').lower()
+        if model=='civic':
+            price=honda['Civic']
+            choice['Civic'] = price
+        elif model=='pilot':
+            price=honda['Pilot']
+            choice['Pilot'] = price
+        elif model=='odyssey':
+            price=honda['Odyssey']
+            choice['Odyssey'] = price
+    elif make=='ford':
+        model=input('Which model would you like to choose? Explorer:$33,000, Focus:$16,000, Taurus:$29,000').lower()
+        if model=='explorer':
+            price=ford['Explorer']
+            choice['Explorer'] = price
+        elif model=='focus':
+            price=ford['Focus']
+            choice['Focus'] = price
+        elif model=='taurus':
+            price=ford['Taurus']
+            choice['Taurus'] = price
+    elif make=='subaru':
+        model=input('Which model would you like to choose? Crosstrek: $28,000, Outback: $27,000, Forrester: $36,000').lower()
+        if model=='crosstrek':
+            price=subaru['Crosstrek']
+            choice['Crosstrek'] = price
+        elif model=='outback':
+            price=subaru['Outback']
+            choice['Outback'] = price
+        elif model=='forrester':
+            price=subaru['Forrester']
+            choice['Forrester'] = price
+    return choice
+def add_on(choice):
+    add={'Camera':500, 'Tint':1000, 'Sunroof':1500}
+    y=0
+    while y<3:
+        add_on=input('What add on would you like to add: Camera: $500, Tint: $1,000, or Sunroof: $1,500, if none type in none').lower()
+        if add_on=='camera':
+            price=add['Camera']
+            choice['Camera']=price
+            if y<2:
+                cont=input('Would you want to choose another add on?')
+                if cont=='y' or cont=='yes':
+                    y+=1
+                else:
+                    y+=3
+            else:
+                y+=3
+        elif add_on=='tint':
+            price=add['Tint']
+            choice['Tint']=price
+            if y<2:
+                cont=input('Would you want to choose another add on?')
+                if cont=='y' or cont=='yes':
+                    y+=1
+                else:
+                    y+=3
+            else:
+                y+=3
+        elif add_on=='sunroof':
+            price=add['Sunroof']
+            choice['Sunroof']=price
+            if y<2:
+                cont=input('Would you want to choose another add on?')
+                if cont=='y' or cont=='yes':
+                    y+=1
+                else:
+                    y+=3
+            else:
+                y+=3
+        elif add_on=='none':
+            print('No add on added')
+            y+=3
+    return choice
+def price(choice):
+    price=0
+    for k in choice:
+        price+=choice[k]
+    return price
+main()
+
  
