@@ -1,3 +1,4 @@
+#group members: Niko Smith, John Molsbee, and Josue Serrano R.
 def main():
     name=input('Before you can see our cars, please input your name here:')
     import os.path
