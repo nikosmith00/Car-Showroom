@@ -1,6 +1,6 @@
 #group members: Niko Smith, John Molsbee, and Josue Serrano R.
 def main():
-    name=input('Before you can see our cars, please input your name here:')
+    name=input('Before you can see our cars, please input your name here:').title()
     import os.path
     from os import path
     import json
@@ -11,8 +11,8 @@ def main():
         print('It looks like you already have a car picked out!')
         print(f.read())
         f=open(fileName, "a")
-        yesOrNo=input('Would you like to select another car, Yes or No?')
-        if yesOrNo=='Yes'or'yes':
+        yesOrNo=input('Would you like to select another car, Yes or No?').title()
+        if yesOrNo=='Yes':
             y=1
             while y==1:
                 choice={}
@@ -20,8 +20,8 @@ def main():
                 type=model(choice, make)
                 add=add_on(choice)
                 print(choice)
-                cont=input('Are you ok with your selection?')
-                if cont=='Yes'or'yes':
+                cont=input('Are you ok with your selection?').title()
+                if cont=='Yes' or cont=='Y':
                     y+=1
             cost=price(choice)
             print('Total price:', cost)
@@ -42,8 +42,8 @@ def main():
             type=model(choice, make)
             add=add_on(choice)
             print(choice)
-            cont=input('Are you ok with your selection?')
-            if cont=='Yes'or'yes':
+            cont=input('Are you ok with your selection?').title()
+            if cont=='Yes' or cont=='Y':
                 y+=1
         cost=price(choice)
         print('Total price:', cost)
@@ -101,8 +101,8 @@ def add_on(choice):
             price=add['Camera']
             choice['Camera']=price
             if y<2:
-                cont=input('Would you want to choose another add on?')
-                if cont=='y' or cont=='yes':
+                cont=input('Would you want to choose another add on?').title()
+                if cont=='Yes' or cont=='Y':
                     y+=1
                 else:
                     y+=3
@@ -112,8 +112,8 @@ def add_on(choice):
             price=add['Tint']
             choice['Tint']=price
             if y<2:
-                cont=input('Would you want to choose another add on?')
-                if cont=='y' or cont=='yes':
+                cont=input('Would you want to choose another add on?').title()
+                if cont=='Yes'or cont=='Y':
                     y+=1
                 else:
                     y+=3
@@ -123,8 +123,8 @@ def add_on(choice):
             price=add['Sunroof']
             choice['Sunroof']=price
             if y<2:
-                cont=input('Would you want to choose another add on?')
-                if cont=='y' or cont=='yes':
+                cont=input('Would you want to choose another add on?').title()
+                if cont=='Yes' or cont=='Y':
                     y+=1
                 else:
                     y+=3
